@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.estudos.restful.model.Informacao;
 import br.com.estudos.restful.model.Item;
-import br.com.estudos.restful.ws.Informacao;
 import br.com.estudos.restful.ws.ItemBuilder;
 
 @Service
@@ -53,8 +53,26 @@ public class Informacoes {
 		Informacao pedido1 = new Informacao(1, "154254658", "Pedido Vale", "450521316056126", 
 				" MICHELIN IMPORTAÇÃO E EXPORTAÇÃO", Arrays.asList(item1, item2, item3));
 		
+		Item item4 = new ItemBuilder()
+				.comId(1)
+				.comItem("12345678")
+				.comDescricao("14.00 R 24 XKD1 A ***")
+				.comDtEntrega("20/05/2019")
+				.comQTD(40)
+				.comValor(500.00)
+				.comValorTotal(20000.00)
+				.comStatus("Pendente")
+				.build();
+		
+		
+		
+		Informacao pedido2 = new Informacao(11, "154254658", "Pedido Vale", "450521316056126", 
+				" MICHELIN IMPORTAÇÃO E EXPORTAÇÃO", Arrays.asList(item1, item2, item3));
+		
+		
 		
 		informacoes.add(pedido1);
+		informacoes.add(pedido2);
 	}
 	
 	public Informacao findById(long id) {

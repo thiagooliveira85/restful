@@ -1,8 +1,6 @@
-package br.com.estudos.restful.ws;
+package br.com.estudos.restful.model;
 
 import java.util.List;
-
-import br.com.estudos.restful.model.Item;
 
 public class Informacao {
 	

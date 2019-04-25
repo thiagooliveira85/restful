@@ -5,13 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.estudos.restful.model.Informacao;
 import br.com.estudos.restful.repository.Informacoes;
+
 
 @RestController
 public class InformacoesWS {
@@ -19,11 +22,13 @@ public class InformacoesWS {
 	@Autowired
 	private Informacoes informacoes;
 	
+	@CrossOrigin("*")
 	@RequestMapping(value= "/api/listar", method = RequestMethod.GET)	
 	public ResponseEntity<List<Informacao>> lista() {
 		return new ResponseEntity<List<Informacao>>(informacoes.findAll(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin("*")
 	@RequestMapping(value= "/api/listar/{id}", method = RequestMethod.GET)	
 	public ResponseEntity<Informacao> getInfo(@PathVariable("id") long id) {
 		try {
@@ -34,8 +39,9 @@ public class InformacoesWS {
 		}
 	}
 	
+	@CrossOrigin("*")
 	@RequestMapping(value= "/api/salvar", method = RequestMethod.POST)	
-	public void salvar(Informacao info) {
+	public void salvar(@RequestBody Informacao info) {
 		
 		if (info.getId() == 0)
 			throw new RuntimeException("BAD REQUEST");
