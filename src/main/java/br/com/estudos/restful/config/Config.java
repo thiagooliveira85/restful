@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import br.com.estudos.restful.repository.Contatos;
-import br.com.estudos.restful.ws.ContatosWS;
+import br.com.estudos.restful.repository.Informacoes;
+import br.com.estudos.restful.ws.InformacoesWS;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses= {ContatosWS.class, Contatos.class})
+@ComponentScan(basePackageClasses= {InformacoesWS.class, Informacoes.class})
 public class Config {
 	
 	public static void main(String[] args) {
