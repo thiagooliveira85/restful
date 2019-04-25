@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.estudos.restful.model.Item;
 import br.com.estudos.restful.ws.Informacao;
-import br.com.estudos.restful.ws.Item;
 import br.com.estudos.restful.ws.ItemBuilder;
 
 @Service
@@ -25,6 +25,7 @@ public class Informacoes {
 				.comQTD(40)
 				.comValor(500.00)
 				.comValorTotal(20000.00)
+				.comStatus("Pendente")
 				.build();
 		
 		Item item2 = new ItemBuilder()
@@ -35,6 +36,7 @@ public class Informacoes {
 				.comQTD(10)
 				.comValor(800.00)
 				.comValorTotal(8000.00)
+				.comStatus("Confirmado")
 				.build();
 		
 		Item item3 = new ItemBuilder()
@@ -45,6 +47,7 @@ public class Informacoes {
 				.comQTD(100)
 				.comValor(40.00)
 				.comValorTotal(4000.00)
+				.comStatus("Pendente")
 				.build();
 		
 		Informacao pedido1 = new Informacao(1, "154254658", "Pedido Vale", "450521316056126", 

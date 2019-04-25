@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import br.com.estudos.restful.model.Item;
+
 public class ItemBuilder {
 	
 	private Item item;
@@ -48,8 +50,14 @@ public class ItemBuilder {
 		return this;
 	}
 
+	public ItemBuilder comStatus(String status) {
+		item.setStatus(status);
+		return this;
+	}
+	
 	public Item build() {
 		return item;
 	}
+
 
 }

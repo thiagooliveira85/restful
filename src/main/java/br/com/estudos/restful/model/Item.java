@@ -1,4 +1,4 @@
-package br.com.estudos.restful.ws;
+package br.com.estudos.restful.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,6 +12,7 @@ public class Item {
 	private Integer quantidade;
 	private BigDecimal valorUnitario;
 	private BigDecimal valorTotal;
+	private String status;
 	
 	public long getId() {
 		return id;
@@ -77,5 +78,11 @@ public class Item {
 		} else if (!item.equals(other.item))
 			return false;
 		return true;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

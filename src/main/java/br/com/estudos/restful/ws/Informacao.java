@@ -2,6 +2,8 @@ package br.com.estudos.restful.ws;
 
 import java.util.List;
 
+import br.com.estudos.restful.model.Item;
+
 public class Informacao {
 	
 	private long id;
