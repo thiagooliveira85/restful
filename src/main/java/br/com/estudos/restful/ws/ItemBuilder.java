@@ -1,6 +1,8 @@
 package br.com.estudos.restful.ws;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -30,8 +32,7 @@ public class ItemBuilder {
 	}
 
 	public ItemBuilder comDtEntrega(String dtEntrega) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		item.setDataEntrega(LocalDate.parse(dtEntrega, formatter));
+		item.setDataEntrega(dtEntrega);
 		return this;
 	}
 

@@ -1,17 +1,20 @@
 package br.com.estudos.restful.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Item {
 	
 	private long id;
 	private String item;
 	private String descricao;
-	private LocalDate dataEntrega;
+	
+	private String dataEntrega;
+	
 	private Integer quantidade;
 	private BigDecimal valorUnitario;
 	private BigDecimal valorTotal;
+	
 	private String status;
 	
 	public long getId() {
@@ -32,10 +35,10 @@ public class Item {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public LocalDate getDataEntrega() {
+	public String getDataEntrega() {
 		return dataEntrega;
 	}
-	public void setDataEntrega(LocalDate dataEntrega) {
+	public void setDataEntrega(String dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 	public Integer getQuantidade() {
