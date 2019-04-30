@@ -13,6 +13,10 @@ public class Informacao {
 	
 	public Informacao() {}
 	
+	public Informacao(long id) {
+		this.id = id;
+	}
+	
 	public Informacao(long id, String numPedido, String pedido, String idFornecedor, String fornecedor, List<Item> itens) {
 		this.id = id;
 		this.numPedido = numPedido;
@@ -52,12 +56,34 @@ public class Informacao {
 	public void setItens(List<Item> itens) {
 		this.itens = itens;
 	}
-
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Informacao other = (Informacao) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+	
 }

@@ -90,5 +90,15 @@ public class Informacoes {
 	public void save(Informacao contato) {
 		informacoes.add(contato);
 	}
+	
+	public void remover(long id) {
+		for (Informacao info : informacoes) {
+			if (info.getId() == id) {
+				informacoes.remove(new Informacao(id));
+				break;
+			}
+				
+		}
+	}
 
 }

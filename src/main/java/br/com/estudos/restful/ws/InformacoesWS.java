@@ -30,18 +30,30 @@ public class InformacoesWS {
 		try {
 			return new ResponseEntity<Informacao>(informacoes.findById(id), HttpStatus.OK);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			return new ResponseEntity<Informacao>(HttpStatus.NOT_FOUND);			
 		}
 	}
 	
 	@RequestMapping(value= "/api/salvar", method = RequestMethod.POST)	
-	public void salvar(@RequestBody Informacao info) {
-		
-		if (info.getId() == 0)
-			throw new RuntimeException("BAD REQUEST");
-		
-		informacoes.save(info);
+	public ResponseEntity<Informacao> salvar(@RequestBody Informacao info) {
+		try {
+			informacoes.save(info);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<Informacao>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Informacao>(HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value= "/api/remover/{id}", method = RequestMethod.DELETE)	
+	public ResponseEntity<Informacao> remover(@PathVariable("id") long id) {
+		try {
+			informacoes.remover(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<Informacao>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Informacao>(HttpStatus.OK);
 	}
 	
 }
